@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mantenimiento</title>
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body onload="read()">
+    <header>
+        <nav class="navbar  navbar-dark bg-dark navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Compu Health</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>         
+                <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link active" aria-current="page" href="/">Registrar equipos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" aria-current="page" href="/consulta.html">Consulta de equipos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>     
+        </nav>   
+    </header>
+    <div class="container">      
+        <div class="row">
+
+            <div class="col-md-4">
+                <h3 style="text-align:center">Registro de Mantenimiento de Computadoras</h3>
+
+                <form action="#">
+
+                    <div class="form-group">
+                        <label for="Input1">ID</label>
+                        <input type="text" class="form-control" id="Input1" placeholder="ID">
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="Input2">Marca</label>
+                        <select class="form-control " id="Input2">
+                            <option value="selecciona" hidden="selecciona">selecciona</option>
+                            <option value="ASUS">ASUS</option>
+                            <option value="MSI">MSI</option>
+                            <option value="Apple">Apple</option>
+                            <option value="DELL">DELL</option>
+                            <option value="HP">HP</option>
+                            <option value="Lenovo">Lenovo</option>
+                            <option value="Razer">Razer</option>
+                            <option value="AlienWare">AlienWare</option>
+                            <option value="Acer">Acer</option>
+                            <option value="Microsoft Surface">Microsoft Surface</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Toshiba">Toshiba</option>
+                            <option value="Sony VAIO">Sony VAIO</option>
+                            <option value="LANIX">LANIX</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Input3">Modelo</label>
+                        <input type="text" class="form-control" id="Input3" placeholder="Nombre del Modelo">
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="Input4">Tipo de Pantalla</label>
+                        <select class="form-control " id="Input4">
+                            <option value="selecciona" hidden="selecciona">selecciona</option>
+                            <option value="OLED">OLED</option>
+                            <option value="LCD">LCD</option>
+                            <option value="IPS">IPS</option>
+                            <option value="CRT">CRT</option>
+                            <option value="TN">TN</option>
+                            <option value="VA">VA</option>
+                            <option value="PLS">PLS</option>
+                            <option value="AMOLED">AMOLED</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="Input5">Procesador</label>
+                        <select class="form-control " id="Input5">
+                            <option value="selecciona" hidden="selecciona">selecciona</option>
+                            <option value="Intel Core" >Intel Core</option>
+                            <option value="Intel XEON" >Intel XEON</option>
+                            <option value="Intel Pentium" >Intel Pentium</option>
+                            <option value="Intel Celeron" >Intel Celeron</option>
+                            <option value="AMD Ryzen" >AMD Ryzen</option>
+                            <option value="AMD EPYCo" >AMD EPYC</option>
+                            <option value="M1">M1</option>
+                            <option value="M2">M2</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Input6">Capacidad de Memoria RAM</label>
+                        <input type="text" class="form-control" id="Input6" placeholder="Memoria en GB">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Input7">Capacidad de Almacenamiento</label>
+                        <input type="text" class="form-control" id="Input7" placeholder="Capacidad en GB">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Input8">Tarjeta Grafica</label>
+                        <input type="text" class="form-control" id="Input8" placeholder="Modelo">
+                    </div>
+
+                    <button type="submit " class="btn btn-primary" onclick="createR()">Enviar</button>
+                    <button type="reset " class="btn btn-secondary" onclick="resetFields()">Limpiar</button>
+                </form>
+            </div>
+
+
+            <div class="col-md-8">
+                <h3 style="text-align:center">Computadoras</h3>
+
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Pantalla</th>
+                        <th scope="col">Procesador</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">Almacenamiento</th>
+                        <th scope="col">Grafica</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id='Table1'>
+
+
+                    </tbody>
+                  </table>
+                
+            </div>
+
+        </div>
+        <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    </container>    
+  </body>
+</html>

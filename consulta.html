@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mantenimiento - Consulta</title>
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+    <script src="index.js"></script>
+  </head>
+
+<body onload="readQ()"> 
+    <header>
+        <nav class="navbar  navbar-dark bg-dark navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Compu Health</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarCollapseBut" aria-controls="NavbarCollapseBut" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>         
+                <div class="navbar-collapse collapse" id="NavbarCollapseBut">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link active" aria-current="page" href="/">Registrar equipos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" aria-current="page" href="/consulta.html">Consulta de equipos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>     
+        </nav>   
+    </header>
+    <div class="container">
+        <div class="row">
+            <label for="Input2">Marca</label>            
+            <div class="input-group">
+                <select class="form-select mb-3 col-md-3" id="Input2"  onchange="readQ()">
+                    <option selected>Selecciona</option>
+                    <option value="ASUS">ASUS</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Apple">Apple</option>
+                    <option value="DELL">DELL</option>
+                    <option value="HP">HP</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="Razer">Razer</option>
+                    <option value="AlienWare">AlienWare</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Microsoft Surface">Microsoft Surface</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="Sony VAIO">Sony VAIO</option>
+                    <option value="LANIX">LANIX</option>
+                </select>
+            </div>
+            
+
+            <div class="col-md-12">
+                <h3 style="text-align:center">Computadoras</h3>
+
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Pantalla</th>
+                        <th scope="col">Procesador</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">Almacenamiento</th>
+                        <th scope="col">Grafica</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id='Table2'>
+
+
+                    </tbody>
+                  </table>
+                
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+</html>
